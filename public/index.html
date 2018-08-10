@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Strayve - event title goes here</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!-- Foundation Framework CSS -->
+    <link rel="stylesheet" href="css/foundation.min.css">
+
+		<!-- Include Amplitude JS -->
+		<script type="text/javascript" src="js/amplitude.js"></script>
+
+    <!-- Foundation jQuery and Functions -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/foundation.min.js"></script>
+    <script type="text/javascript" src="js/socket.io.js"></script>
+    <script type="text/javascript" src="js/ntp.js"></script>
+
+		<!-- Include Style Sheet -->
+    <link rel="stylesheet" type="text/css" href="css/app.css"/>
+  </head>
+  <body>
+    <div class="grid-x grid-padding-x">
+      <div class="large-12 medium-12 small-12 cell">
+        <div id="single-song-player">
+          <img amplitude-song-info="cover_art_url" amplitude-main-song-info="true"/>
+          <div class="bottom-container">
+            <progress class="amplitude-song-played-progress" amplitude-main-song-played-progress="true" id="song-played-progress"></progress>
+
+            <div class="control-container">
+              <div class="amplitude-play-pause" amplitude-main-play-pause="true" id="play-pause"></div>
+              <div class="meta-container">
+                <span amplitude-song-info="name" amplitude-main-song-info="true" class="song-name" id="currentTitle"></span>
+                <span amplitude-song-info="artist" amplitude-main-song-info="true"></span>
+                <span amplitude-song-info="album" amplitude-main-song-info="true" id="albumTitle"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        <!-- Utilize Amplitude for DOM manipulaton after the static elements are setup -->
+        <script type="text/javascript" src="js/functions.js"></script>
+  </body>
+</html>

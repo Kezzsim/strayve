@@ -1,0 +1,33 @@
+{
+  "name": "strayve.io",
+  "version": "0.0.1",
+  "description": "The javascript local silent disco app : throw a rave with little more than a router, tune in through any browser.",
+  "author": "Kari Barry",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "homepage": "http://strayve.io",
+  "keywords": [
+    "streaming",
+    "audio",
+    "DJ"
+  ],
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "chalk-animation": "^1.6.0",
+    "commander": "^2.16.0",
+    "cookie-parser": "~1.4.3",
+    "morgan": "~1.9.0",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "figlet": "^1.2.0",
+    "icy": "^2.1.0",
+    "inquirer": "^6.0.0",
+    "ip": "^1.1.5",
+    "lame": "^1.2.4",
+    "moniker": "^0.1.2",
+    "socket-ntp": "^0.1.0",
+    "socket.io": "^2.1.1",
+    "speaker": "^0.4.1"
+  }
+}
