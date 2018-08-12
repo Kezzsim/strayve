@@ -1,12 +1,14 @@
 var icy = require('icy');
 var lame = require('lame');
+const path = require('path');
 var ntp = require('socket-ntp');
 var Moniker = require('moniker');
 var Speaker = require('speaker');
 var socket = require('socket.io');
 var display = require('./disPlay');
 
-var names = Moniker.generator([Moniker.adjective, 'friendsname.txt']);
+var here = path.join(path.dirname(require.main.filename),'..');
+var names = Moniker.generator([Moniker.adjective, path.join(here, 'res', 'friendsname.txt')]);
 
 exports = module.exports = broadCast;
 

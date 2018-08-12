@@ -26,9 +26,6 @@ function notifier(client) {
   function reset() {
     setTimeout(() => {
       header(address);
-      setTimeout(() => {
-          updater(track);
-      }, 1000);
     }, 5000);
   }
 
@@ -37,17 +34,19 @@ function notifier(client) {
 
 function updater(currentTrack) {
   track = currentTrack;
-  var serverTitle = "Now Playing: " + currentTrack.StreamTitle.replace(/[^a-zA-Z ]/g, "") + "\n";
-  if (serverTitle.length >= process.stdout.columns) {
-    chalkAnimation.neon(serverTitle.substring(0, process.stdout.columns));
-  } else {
-    chalkAnimation.neon(serverTitle);
-  }
-
+  header(address);
   return currentTrack.StreamTitle;
 }
 
 function header(host) {
+  setTimeout(() => {
+    var serverTitle = "Now Playing: " + track.StreamTitle.replace(/[^a-zA-Z ]/g, "");
+    if (serverTitle.length >= process.stdout.columns) {
+      chalkAnimation.neon(serverTitle.substring(0, process.stdout.columns));
+    } else {
+      chalkAnimation.neon(serverTitle);
+    }
+  }, 1000);
   address = host;
   console.clear();
   figlet.text('Strayve', {
@@ -74,6 +73,12 @@ function header(host) {
   });
 
 }
+
+process.on('SIGINT', function() {
+    console.clear();
+    console.log(chalk.yellow(" -SHOW OVER-"));
+    process.exit();
+});
 
 module.exports = {
   notify: notifier,

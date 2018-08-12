@@ -2,9 +2,11 @@ var fs = require('fs');
 var program = require('commander');
 var inquirer = require('inquirer');
 var ip = require('ip');
+const path = require('path');
 var display = require('./disPlay');
 
 var urlcheck = new RegExp(/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi);
+var here = path.join(path.dirname(require.main.filename),'..');
 var configuration;
 var questions = [{
   type: 'input',
@@ -53,7 +55,7 @@ function startApp() {
     display.start(configuration);
     exports.config = configuration;
 
-    fs.writeFile("tmp/connect.json", JSON.stringify(configuration), function(err) {
+    fs.writeFile(path.join(here, 'tmp', 'connect.json'), JSON.stringify(configuration), function(err) {
       if (err) {
         return console.log(err);
       }
