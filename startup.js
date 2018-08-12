@@ -28,7 +28,7 @@ function startApp() {
    * Fire up Commander to get those command line arguments
    */
   program
-    .version('0.0.1')
+    .version('0.0.2')
     .arguments('<streamURL>')
     .action(function(streamURL) {
       stream = streamURL;

@@ -48,7 +48,7 @@ function header(host) {
     }
   }, 1000);
   address = host;
-  console.clear();
+  process.stdout.write('\033c\033[3J');
   figlet.text('Strayve', {
     font: 'Slant',
     horizontalLayout: 'default',
@@ -75,7 +75,7 @@ function header(host) {
 }
 
 process.on('SIGINT', function() {
-    console.clear();
+    process.stdout.write('\033c\033[3J');
     console.log(chalk.yellow(" -SHOW OVER-"));
     process.exit();
 });
