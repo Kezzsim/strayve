@@ -60,12 +60,13 @@ function header(host) {
       return;
     }
     process.stdout.write(data);
-    process.stdout.write(chalk.bgMagenta.bold("\n Server is live at " + host.ip + ":" + host.port+" \n"));
+    process.stdout.write(chalk.bgMagenta("\n        Node powered Silent Disco       "));
+    process.stdout.write(chalk.bgMagenta.bold("\n  Server is live at " + host.ip + ":" + host.port+"  \n"));
     if (!roster.length) {
-      process.stdout.write(chalk.bgWhite.grey("        No Clients connected          \n"));
+      process.stdout.write(chalk.bgWhite.grey("         No Clients connected           \n"));
     }
     else {
-      console.log(chalk.bgGreen.bold("          Connected Clients:          "));
+      console.log(chalk.bgGreen.bold("           Connected Clients:           "));
       roster.forEach(function(clint) {
         console.log(chalk.bgGreen(clint.name));
       });

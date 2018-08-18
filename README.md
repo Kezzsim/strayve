@@ -1,16 +1,17 @@
 # Strayve.io
 Node powered silent disco, tune in from your phone.
 
-Open source software by @kezzsim (Kari A Barry). Detailed dependency list to come.
+Open source software by [@kezzism](https://twitter.com/Kezzism) (Kari K Barry). Detailed dependency list to come.
 
-## This is the third push - if you are reading this the software kinda works but it is not ready for primetime. That being said if you want to try it in this state here’s a few things you should know:
+### This is the fourth push - if you are reading this the software kinda works but it is not ready for primetime. That being said if you want to try it in this state here’s a few things you should know:
 - Only built / run / tested in MacOS High Sierra and El Capitan thus far
 - Even the first public release of this software will require a Shoutcast / Icecast server running elsewhere to get music into Strayve. **The stream must be in MP3 format** although we are working on OGG support, that means if you plan on using Traktor, try to use a tool like [Broadcast Using This Tool](https://danielnoethen.de/) to route the audio into an mp3 compressed stream. We are considering building in a node based Icecast server but currently we are trying to keep the package size down and the runtime light so you'll have to set up your own for now, we might also start piping in local audio sources with OS dependent input libraries if that feature is requested enough.
 - The URL to an Shoutcast / Icecast server **must** be included as an argument when you start the server eg. `strayve {server URL}`
+- It might seem insultingly large right now, the package clocks in at 2.7M which is crazy but there’s a few dependencies that are only for debugging / were thrown in with Express and even then this is designed for offline use so we’ve had to bundle a lot of normally served CDN resources.
 
 That being said, if you’re feeling lucky; open your terminal and hit `npm i -g strayve.io`
 
-### TODO NOW:
+#### TODO NOW:
 - [x] Replace art for initial push
 - [x] gitignore node-modules
 - [x] Push raw code to GitHub for version 0.0.1
@@ -21,7 +22,7 @@ That being said, if you’re feeling lucky; open your terminal and hit `npm i -g
 - [ ] thin out the **INSANE** dependencies that were used for testing
 - [ ] I'd like to get inquirer to *actually work* before a major version release, maybe remove commander. Right now the program just crashes without an argument. 😔
 
-### Larger scope TODO:
+#### Larger scope TODO:
 - [ ] user configurable album art, artist and album fields
 - [ ] WINDOWS SUPPORT? (presumably just as easy as using the path module for every access)
 - [ ] Requests - adding a request box via foundation on the client side, requests show up next to client names in the terminal.

@@ -8,6 +8,7 @@ $.getJSON("tmp/connect.json", function(data) {
   //   $('#albumTitle').text(ntp.offset());
   // }, 1000);
   socket.on('nowPlaying', function(trknm) {
+    document.title = trknm;
     $("#currentTitle").text(trknm);
     //TODO: Waiting for future release of Amplitude with setMetaData method
     //Amplitude.setMetaData(0, {'title': trknm});
@@ -46,7 +47,7 @@ $.getJSON("tmp/connect.json", function(data) {
     return !(e.keyCode == 32);
   };
 
-  //The lines below may be boilerplate / supurfluous 
+  //The lines below may be boilerplate / supurfluous
   window.addEventListener('touchstart', function() {
 
     // create empty buffer
