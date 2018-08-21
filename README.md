@@ -15,7 +15,7 @@ That being said, if you’re feeling lucky; open your terminal and hit `npm i -g
 - [x] Replace art for initial push
 - [x] gitignore node-modules
 - [x] Push raw code to GitHub for version 0.0.1
-- [ ] Create the website, make gh-pages branch
+- [x] Create the website, make gh-pages branch
 - [ ] Actually finish readme with info from the site
 - [x] get project on NPM
 - [ ] Setup CI testing
