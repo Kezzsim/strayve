@@ -3,28 +3,9 @@ Node powered silent disco, tune in from your phone.
 
 Open source software by [@kezzism](https://twitter.com/Kezzism) (Kari K Barry). Detailed dependency list to come.
 
-### This is the fourth push - if you are reading this the software kinda works but it is not ready for primetime. That being said if you want to try it in this state here’s a few things you should know:
-- Only built / run / tested in MacOS High Sierra and El Capitan thus far
-- Even the first public release of this software will require a Shoutcast / Icecast server running elsewhere to get music into Strayve. **The stream must be in MP3 format** although we are working on OGG support, that means if you plan on using Traktor, try to use a tool like [Broadcast Using This Tool](https://danielnoethen.de/) to route the audio into an mp3 compressed stream. We are considering building in a node based Icecast server but currently we are trying to keep the package size down and the runtime light so you'll have to set up your own for now, we might also start piping in local audio sources with OS dependent input libraries if that feature is requested enough.
-- The URL to an Shoutcast / Icecast server **must** be included as an argument when you start the server eg. `strayve {server URL}`
-- It might seem insultingly large right now, the package clocks in at 2.7M which is crazy but there’s a few dependencies that are only for debugging / were thrown in with Express and even then this is designed for offline use so we’ve had to bundle a lot of normally served CDN resources.
+# Update 12/2020 - This software is deprecated and is no longer being actively maintained. 
 
-That being said, if you’re feeling lucky; open your terminal and hit `npm i -g strayve.io`
-
-#### TODO NOW:
-- [x] Replace art for initial push
-- [x] gitignore node-modules
-- [x] Push raw code to GitHub for version 0.0.1
-- [x] Create the website, make gh-pages branch
-- [ ] Actually finish readme with info from the site
-- [x] get project on NPM
-- [ ] Setup CI testing
-- [ ] thin out the **INSANE** dependencies that were used for testing
-- [ ] I'd like to get inquirer to *actually work* before a major version release, maybe remove commander. Right now the program just crashes without an argument. 😔
-
-#### Larger scope TODO:
-- [ ] user configurable album art, artist and album fields
-- [ ] WINDOWS SUPPORT? (presumably just as easy as using the path module for every access)
-- [ ] Requests - adding a request box via foundation on the client side, requests show up next to client names in the terminal.
-- [ ] **SYNCHRONIZATION** - find a way to synchronize client playback of the mp3 stream or switch over to piping binary data through the web sockets. Neither option seems feasible right now.
-- [ ] Captive portal feedback - the execution is so much better with a captive audience, attempt to use Chilispot, Sputnik or other methods running on an access point to redirect towards Strayve.
+In the years since 2018 a ton has changed in the world of web development, while we've seen tremendous strives like [WebAssembly](https://webassembly.org/) hit the scene, providing incredible interfaces to tackle tasks never before handled in the browser, we've also seen the rise of devastating security risks which stem from the increasingly tight integration between browser and host machine. One of these vulnerabilities, known by security researchers as [Spectre](https://en.wikipedia.org/wiki/Spectre_(security_vulnerability)) is ultimately responsible for the decline in feasibility of this project. When this code debuted at *The CellPhone Disco*, downtown Pittsburgh in July of 2018 it was possible to access the realtime clock of most browsers and provide a reasonable "synchronization" between the DJ and the clients listening in; moderating the rate at which chunks of raw data were played back. However, as of writing this that task has since become insurmountable. 
+## TL;DR if you ask a modern browser for access to the actual time down to the finest precision, you're going to get a result back that is randomized slightly and thus unusable over the course of a performance with multiple listeners. 
+---
+That being said, there has been recent interest in this concept and I would like to continue someday under the premise of an "Instant App" as seen on [iOS](https://developer.apple.com/app-clips/) and [Android](https://developer.android.com/topic/google-play-instant) and perhaps the sync clock can be some kind of bluetooth L.E. peripheral or otherwise inaudible audio frequency the app can tap into. There are other developers looking into the idea, now that airPods and other wireless headphones have become commonplace. The future is bright, even as we turn the lights off for good on this repo.
